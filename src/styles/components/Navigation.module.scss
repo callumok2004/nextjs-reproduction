@@ -1,0 +1,78 @@
+.base {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 45px;
+      border-radius: 100px;
+    }
+  }
+
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      background: transparent;
+      padding: 5px 12px;
+      font-size: 15px;
+      border-radius: 1px;
+      color: rgb(51, 147, 51);
+      border: 0.8px solid rgb(51, 147, 51);
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        border-radius: 15px;
+      }
+    }
+  }
+}
+
+.center {
+  display: none;
+
+  .activePage {
+    color: rgb(25, 212, 215);
+  }
+
+  a {
+    margin-left: 30px;
+    margin-right: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+@media only screen and (max-width: 699px) {
+  .smallScreen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .bigScreen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

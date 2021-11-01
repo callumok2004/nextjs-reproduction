@@ -1,8 +1,15 @@
-import '../styles/globals.scss';
+import "../styles/globals.scss";
 
-import type { AppProps } from 'next/app'
+import { Provider } from "next-auth/client";
+import Script from "next/script";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function Ansen({ Component, pageProps }: any) {
+  return (
+    <Provider session={pageProps?.session}>
+      <Script src="https://unpkg.com/feather-icons" />
+      <Component {...pageProps} />
+    </Provider>
+  )
 }
-export default MyApp
+
+export default Ansen;
