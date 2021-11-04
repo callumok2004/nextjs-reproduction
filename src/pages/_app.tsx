@@ -1,15 +1,15 @@
 import "../styles/globals.scss";
 
-import { Provider } from "next-auth/client";
+import { SessionProvider } from "next-auth/react";
 import Script from "next/script";
 
-function Ansen({ Component, pageProps }: any) {
+function Ryft({ Component, pageProps }: any) {
   return (
-    <Provider session={pageProps?.session}>
+    <SessionProvider  session={pageProps?.session} refetchInterval={5 * 60}>
       <Script src="https://unpkg.com/feather-icons" />
       <Component {...pageProps} />
-    </Provider>
+    </SessionProvider>
   )
 }
 
-export default Ansen;
+export default Ryft;

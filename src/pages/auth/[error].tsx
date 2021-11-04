@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { signIn } from "next-auth/client";
+import { signIn } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 import styles from "../../styles/pages/Auth.module.scss";

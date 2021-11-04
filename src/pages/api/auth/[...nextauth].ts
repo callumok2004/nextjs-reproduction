@@ -2,18 +2,24 @@
 
 import axios from "axios";
 import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
+import Discord from "next-auth/providers/discord";
 
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+
+import clientPromise from "../../../lib/database";
 import db from "../database";
 
 export default NextAuth({
     providers: [
-        Providers.Discord({
+        Discord({
             clientId: process.env.DISCORD_ID,
             clientSecret: process.env.DISCORD_SECRET,
             scope: "guilds"
         })
     ],
+    adapter: MongoDBAdapter({
+        db: (await clientPromise).db("Ryft-Auth")
+    }),
     callbacks: {
         jwt: async (token, user, account, profile, isNewUser) => {
             if (profile) {

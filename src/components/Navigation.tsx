@@ -1,12 +1,12 @@
 import $ from "jquery";
-import { signIn, useSession } from "next-auth/client";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 import styles from "../styles/components/Navigation.module.scss";
 
 const Navigation = ({ page }) => {
-  const [session] = useSession(),
+  const { data: session } = useSession(),
     router = useRouter();
 
   function login(out = false) {
