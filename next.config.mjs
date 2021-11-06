@@ -3,16 +3,10 @@ export default {
   swcMinify: true,
   reactStrictMode: true,
   compress: true,
-  webpack: (config) => {
-    config.experiments.topLevelAwait = true;
-    return config;
-  },
-  layer: true,
   experimental: {
     // concurrentFeatures: true,
     // serverComponents: true,
-    reactRoot: true,
-    topLevelAwait: true
+    // reactRoot: true
   },
   async rewrites() {
     return [

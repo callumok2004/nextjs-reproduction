@@ -1,9 +1,10 @@
 import type { NextPage } from 'next';
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
+import clientPromise from "../lib/database";
 import styles from "../styles/pages/Landing.module.scss";
 
-const Landing: NextPage = () => {
+const Landing: NextPage = (t) => {
   return <>
     <title>Ryft</title>
     <Navigation page="home" />

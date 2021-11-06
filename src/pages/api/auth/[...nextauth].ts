@@ -18,7 +18,7 @@ export default NextAuth({
         })
     ],
     adapter: MongoDBAdapter({
-        db: (await clientPromise).db("Ryft-Auth")
+        db: async () => (await clientPromise).db("Ryft-Auth")
     }),
     callbacks: {
         jwt: async (token, user, account, profile, isNewUser) => {
