@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Db, ObjectId } from "mongodb";
+import { Db } from "mongodb";
 import NextAuth from "next-auth";
 
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
@@ -28,7 +28,7 @@ export default async function auth(req, res) {
             profile.image_url = `https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.${format}`
           }
 
-          const guilds = await axios('https://discord.com/api/users/@me/guilds', {
+          const { data: guilds } = await axios('https://discord.com/api/users/@me/guilds', {
             headers: {
               Authorization: `Bearer ${tokens.access_token}`
             }
@@ -48,8 +48,7 @@ export default async function auth(req, res) {
       error: "/auth/error"
     },
     adapter: MongoDBAdapter({
-      db: () => instance,
-      ObjectId
+      db: instance
     })
   })
 }
